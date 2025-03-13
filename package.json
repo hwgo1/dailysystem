@@ -1,0 +1,17 @@
+{
+  "name": "dailysystem",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "express": "^4.21.2",
+    "pug": "^3.0.3"
+  }
+}

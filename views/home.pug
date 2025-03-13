@@ -1,0 +1,54 @@
+doctype html
+html(lang='pt-br')
+    head
+        meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title System
+        link(rel="stylesheet", href="/css/home.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css")  
+    body
+        div.container
+            div.header
+                h1 Tasks System 
+
+            div.status-widget
+                div.status-info
+                    p Seu nível atual
+                    div.status-level LV. 7
+                    p Rank E
+                div.progress-container
+                    div.progress-label
+                        span Experiência
+                        span 65%
+                    div.progress-bar
+                        div.progress
+                    p 650 / 1000 EXP para o próximo nível
+
+            div.task-container
+                div.task-header
+                    h1 Missões Diárias
+                    a.btn(href="/tasks") Nova missão 
+
+                ul.task-list
+                    each task in tasks
+                        li.task-item(class=task.completed ? "completed" : "")
+                            div.task-details
+                                div.task-name #{task.name}
+                                div.task-meta
+                                    div.task-difficulty Dificuldade: 
+                                        span #{task.difficulty}
+                                    div.task-exp EXP: 
+                                        span +#{task.exp}
+                            div.task-actions
+                                button.action-btn.complete-btn
+                                    i.fas.fa-check-circle
+                                button.action-btn.edit-btn
+                                    i.fas.fa-edit
+                                button.action-btn.delete-btn
+                                    i.fas.fa-trash
+
+            //-div.empty-state
+                div.empty-icon
+                    i.fas.fa-tasks
+                p Você não tem missões pendentes.
+                button.btn(style="margin-top: 16px;") Criar primeira missão

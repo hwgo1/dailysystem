@@ -1,0 +1,60 @@
+doctype html
+html(lang="pt-br")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title System
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css")
+        link(rel="stylesheet", href="/css/tasks.css")
+        script(src="/js/tasks.js") 
+
+    body
+        .container
+            .header
+                h1 Task System
+      
+            .form-container
+                .form-header
+                    h1 Nova Missão
+                    a(href="/").btn-cancel
+                        i.fas.fa-times
+        
+                form#task-form(action="/newTask", method="POST")
+                    .form-group
+                        label(for="task-name") Nome da Missão
+                        input#task-name(type="text", name="name", placeholder="Digite o nome da missão", required)
+          
+                    .form-group
+                        label(for="task-deadline") Data Limite
+                        input#task-deadline(type="date", name="deadline")
+          
+                    .form-group
+                        label Nível de Dificuldade
+                        .difficulty-options
+                            .difficulty-option.d.active(data-difficulty="D", data-exp="50")
+                                div Rank D
+                                span +50 EXP
+                            .difficulty-option.c(data-difficulty="C", data-exp="100")
+                                div Rank C
+                                span +100 EXP
+                            .difficulty-option.b(data-difficulty="B", data-exp="200")
+                                div Rank B
+                                span +200 EXP
+                            .difficulty-option.a(data-difficulty="A", data-exp="300")
+                                div Rank A
+                                span +300 EXP
+                            .difficulty-option.s(data-difficulty="S", data-exp="500")
+                                div Rank S
+                                span +500 EXP
+        
+                        input#task-difficulty(type="hidden", name="difficulty", value="D")
+                        input#task-exp(type="hidden", name="exp", value="50")
+          
+                    .btn-group
+                        a.btn.btn-cancel(href="/")
+                            i.fas.fa-times
+                            |  Cancelar
+                        button.btn(type="submit")
+                            i.fas.fa-plus
+                            |  Criar
+        
